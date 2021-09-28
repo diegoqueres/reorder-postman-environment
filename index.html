@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html lang=”en-US”>
+<head>
+  <meta charset=”UTF-8”>
+  <title></title>
+</head>
+<body>
+    <input type="file" id="environment-json-file" />
+    <br />
+</body>
+<script src="js/postman-file-reader.js"></script>
+<script>
+    const inputElement = document.getElementById("environment-json-file");
+    inputElement.onchange = (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        const reader = PostmanFileReader.build(file);
+        reader.readAsText(file);
+    };
+  </script>
+</html>
